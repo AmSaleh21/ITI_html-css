@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add a link</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <center style="float: left;">
+        <h1> first enter the details</h1>
+        <h1v id="visit-times"> </h1>
+    </center>
+    <form method="post" action="">
+        <div class="container">
+            <input class="input-fields" type="text" placeholder="title" autofocus>
+            <input class="input-fields" type="url" placeholder="url" />
+            <input class="input-fields" type="email" placeholder="email (required)" required />
+            <input class="input-fields" type="datetime-local" id="datePicker" />
+
+
+            <button class="buttons" id="submit" type="submit">submit</button>
+        </div>
+        <script>
+            if(localStorage.visitTimes){
+                localStorage.visitTimes = Number(localStorage.visitTimes)+1
+            }else{
+                localStorage.visitTimes = "1";
+            }
+            document.getElementById("visit-times").innerText = "visit times : " + localStorage.visitTimes;
+
+            /*
+            * the datetime local doesn't accept today's date and time
+            * but if used type=date will set to today's date
+            */
+            // // For todays date;
+            // Date.prototype.today = function () {
+            //     return ((this.getDate() < 10) ? "0" : "") + this.getDate() + "/" + (((this.getMonth() + 1) < 10) ? "0" : "") + (this.getMonth() + 1) + "/" + this.getFullYear();
+            // }
+
+            // // For the time now
+            // Date.prototype.timeNow = function () {
+            //     return ((this.getHours() < 10) ? "0" : "") + this.getHours() + ":" + ((this.getMinutes() < 10) ? "0" : "") + this.getMinutes();
+            // }
+
+            // var newDate = new Date();
+            // var datetime = newDate.today() + " , " + newDate.timeNow();
+            
+            // console.log(datetime)
+
+            // document.getElementById('datePicker').value = datetime;
+        </script>
+    </form>
+</body>
+
+</html>
